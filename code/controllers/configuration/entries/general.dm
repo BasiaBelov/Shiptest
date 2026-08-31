@@ -110,10 +110,15 @@
 
 /datum/config_entry/flag/auth_admin_testing // auth server allows admin testing and other actions
 
-// [CELADON-ADD] - Добавляем систему верификации аккаунтов через Discord и систему статистики по спавну кораблей
+// [CELADON-ADD] - Добавляем системы из модульного конфига: Верификация аккаунтов через Discord, систему статистики по спавну кораблей, время спавна пиратов.
 /datum/config_entry/flag/DiscordVerify
 
 /datum/config_entry/flag/ShipStats
+
+/datum/config_entry/number/pirate_time_spawn
+	config_entry_value = 2 HOURS
+	integer = FALSE
+	min_val = 0
 // [/CELADON-ADD]
 
 /datum/config_entry/number/vote_delay	// minimum time between voting sessions (deciseconds, 10 minute default)
@@ -122,7 +127,7 @@
 	min_val = 0
 
 /datum/config_entry/number/vote_period  // length of voting period (deciseconds, default 1 minute)
-	config_entry_value = 600
+	config_entry_value = 3 MINUTES
 	integer = FALSE
 	min_val = 0
 
@@ -195,12 +200,6 @@
 	protection = CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/flag/load_legacy_ranks_only	//Loads admin ranks only from legacy admin_ranks.txt, while enabled ranks are mirrored to the database
-	protection = CONFIG_ENTRY_LOCKED
-
-/datum/config_entry/flag/mentors_mobname_only // Only display mob name to mentors in mentorhelps
-	protection = CONFIG_ENTRY_LOCKED
-
-/datum/config_entry/flag/mentor_legacy_system // Whether to use the legacy mentor system (flat file) instead of SQL
 	protection = CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/string/hostedby

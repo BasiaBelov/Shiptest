@@ -404,7 +404,7 @@
 /obj/item/clothing/under/costume/dutch,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/camera,
-/obj/item/storage/box/donkpockets/donkpocketspicy{
+/obj/item/storage/box/shoalpockets/shoalpocketspicy{
 	desc = "Produced personally be CHUVAK TM. Ultra-spicy";
 	name = "CHUVAK TM Donk-pockets"
 	},
@@ -457,7 +457,15 @@
 /obj/item/robot_module/meka,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/item/gun/energy/e_gun/e_old/adv_stopping,
+/obj/item/gun/energy/e_gun/nanotrasen/maru,
+/obj/item/stock_parts/cell/gun/mini{
+	pixel_x = 9;
+	pixel_y = -5
+	},
+/obj/item/stock_parts/cell/gun/mini{
+	pixel_x = 9;
+	pixel_y = -6
+	},
 /turf/open/floor/plasteel/mono,
 /area/ship/security/armory)
 "aV" = (
@@ -766,15 +774,15 @@
 	},
 /obj/effect/decal/cleanable/glass/plasma,
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets/donkpocketberry{
+/obj/item/storage/box/shoalpockets/shoalpocketberry{
 	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/shoalpockets{
 	pixel_x = -5;
 	pixel_y = 7
 	},
-/obj/item/storage/box/donkpockets/donkpocketspicy{
+/obj/item/storage/box/shoalpockets/shoalpocketspicy{
 	desc = "Produced personally be CHUVAK TM. Ultra-spicy";
 	name = "CHUVAK TM Donk-pockets"
 	},

@@ -95,7 +95,6 @@
 	desc = "Contains a weapon power cell built to be compatible with Eoehoma weapons, and systems that still use Eoehoma's style of cell."
 	contains = list(/obj/item/stock_parts/cell/gun/empty)
 	cost = 500
-*/
 
 /datum/supply_pack/faction/nanotrasen/magazine/nt_guncell
 	name = "P-Cell - Sharplite Weapon Cell"
@@ -106,7 +105,9 @@
 
 /datum/supply_pack/faction/nanotrasen/magazine/nt_gun_plus
 	name = "P-Cell - Sharplite Upgraded Weapon Cell"
-	desc = "Contains an upgraded weapon cell, compatible with most Nanotrasen models. For NT use only."
+	desc = "Contains an upgraded weapon cell, compatible with most nanotrasen models. For NT use only."
 	contains = list(/obj/item/stock_parts/cell/gun/sharplite/plus/empty)
 	cost = 3500
 	stable_price = TRUE
+
+*/
