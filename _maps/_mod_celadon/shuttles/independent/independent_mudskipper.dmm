@@ -40,7 +40,7 @@
 	pixel_x = 10;
 	pixel_y = -6
 	},
-/obj/item/clothing/gloves/color/yellow{
+/obj/item/clothing/gloves/insulated{
 	pixel_x = 7;
 	pixel_y = -2
 	},
@@ -708,7 +708,7 @@
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/gun/energy/e_gun/e_old/smg,
+/obj/item/gun/energy/e_gun/nanotrasen/discharger,
 /obj/item/stock_parts/cell/gun,
 /obj/item/stock_parts/cell/gun,
 /turf/open/floor/plasteel/dark,
@@ -1969,11 +1969,11 @@
 /obj/effect/turf_decal/box{
 	layer = 2.04
 	},
-/obj/item/clothing/gloves/color/yellow{
+/obj/item/clothing/gloves/insulated{
 	pixel_x = 7;
 	pixel_y = 4
 	},
-/obj/item/clothing/gloves/color/yellow{
+/obj/item/clothing/gloves/insulated{
 	pixel_x = 6;
 	pixel_y = 8
 	},

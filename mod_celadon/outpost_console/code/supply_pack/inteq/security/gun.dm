@@ -150,7 +150,7 @@ hp
 	name = "Assault-Rifle - G36M (5.56x45mm)"
 	desc = "An extremely powerful modified G36 to satisfy every gun need a pro mercenary can have. Chambered in 5.56x45mm"
 	contains = list(/obj/item/storage/guncase/g36/inteq)
-	cost = 8000
+	cost = 9000
 /* MARK: 5.56x45mm
 bullet
 	damage = 25
@@ -202,12 +202,20 @@ bullet
 
 /* MARK: Energy
 */
-/datum/supply_pack/faction/inteq/gun/gleam
-	name = "E-SMG - VEC-04 'Gleam'"
-	desc = "A seized Sharplite X-39 energy SMG reworked in IRMG colors. Uses energy weapon cells."
-	cost = 2700
-	contains = list(/obj/item/storage/guncase/energy/gleam)
-	crate_name = "SMG crate"
+
+/datum/supply_pack/faction/inteq/gun/energy/vuelo
+	name = "VEC-04 'Vuelo' Energy SMG"
+	desc = "Contains one refitted SL X-36 SMG, for IRMG use. Uses energy cells."
+	cost = 2500
+	contains = list(/obj/item/storage/guncase/energy/vuelo)
+	crate_name = "energy SMG crate"
+
+/datum/supply_pack/faction/inteq/gun/energy/vuelo
+	name = "VEC-07 'Quemar' Energy Shotgun"
+	desc = "Contains one refitted SL X-49 Shotgun, for IRMG use. Uses energy cells."
+	cost = 4000
+	contains = list(/obj/item/storage/guncase/energy/quemar)
+	crate_name = "energy shotgun crate"
 
 /* // Отключено до реворка плазмы
 // Plasma ETAR - Inteq

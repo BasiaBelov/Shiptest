@@ -59,7 +59,7 @@
 	crate_type = /obj/structure/closet/crate/secure/gear
 
 /datum/supply_pack/faction/nanotrasen/spacesuit/hardsuitsec
-	name = "Nanotrasen Security Hardsuit"
+	name = "Security Hardsuit"
 	desc = "A cheap spare security hardsuit used on NT's stations by the sec department. Provides weak protection against most damage types. Using it for combat in the frontier region of space is not recommended"
 	contains = list(/obj/item/clothing/suit/space/hardsuit/security)
 	cost = 3500

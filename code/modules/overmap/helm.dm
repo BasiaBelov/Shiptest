@@ -92,6 +92,7 @@
 	if(!calibrating)
 		return
 	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override = "[current_ship.name] Bluespace Pylon", zlevel = virtual_z())
+	jump_state = JUMP_STATE_OFF
 	calibrating = FALSE
 	jump_coords = null
 	deltimer(jump_timer)
@@ -116,7 +117,7 @@
 
 /obj/machinery/computer/helm/proc/do_jump()
 	if(jump_destination)
-		priority_announce("Bluespace Jump Initiated. Welcome to [jump_destination.name]", sender_override = "[current_ship.name] Bluespace Pylon", sound = 'sound/magic/lightningbolt.ogg', zlevel = virtual_z())
+		priority_announce("Bluespace Jump Initiated. Welcome to [jump_destination.name].", sender_override = "[current_ship.name] Bluespace Pylon", sound = 'sound/magic/lightningbolt.ogg', zlevel = virtual_z())
 	else
 		priority_announce("Bluespace Jump Initiated.", sender_override = "[current_ship.name] Bluespace Pylon", sound = 'sound/magic/lightningbolt.ogg', zlevel = virtual_z())
 	if(!jump_destination)
@@ -347,7 +348,6 @@
 		// [/CELADON-ADD]
 		if("rename_ship")
 			var/new_name = params["newName"]
-			var/ship_name = (!COOLDOWN_FINISHED(current_ship, rename_prefix_cooldown)) ? "[new_name]" : "[current_ship.source_template.prefix] [new_name]" // [CELADON-ADD] - Показывает актуальное название для корабля.
 			if(!new_name)
 				return
 			new_name = trim(new_name)
@@ -356,7 +356,7 @@
 			if(!reject_bad_text(new_name, MAX_CHARTER_LEN) || CHAT_FILTER_CHECK(new_name))
 				say("Error: Replacement designation rejected by system.")
 				return
-			if(tgui_alert(usr, "Are you sure you want to rename the ship to the \"[ship_name]\"?", "Rename Confirmation", list("Yes", "No")) != "Yes")
+			if(tgui_alert(usr, "Are you sure you want to rename the ship to the \"[current_ship.source_template.prefix] [new_name]\"?", "Rename Confirmation", list("Yes", "No")) != "Yes")
 				return
 			if(!current_ship.Rename(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed.")
@@ -393,9 +393,6 @@
 			return
 		// [/CELADON-ADD]
 		if("act_overmap")
-			if(SSshuttle.jump_mode > BS_JUMP_CALLED)
-				to_chat(usr, "<span class='warning'>Cannot interact due to bluespace jump preperations!</span>")
-				return
 			var/datum/overmap/to_act = locate(params["ship_to_act"]) in current_ship.get_nearby_overmap_objects(include_docked = TRUE, empty_if_src_docked = FALSE)
 			var/feedback_text = current_ship.show_interaction_menu(usr, to_act)
 			if(feedback_text)
@@ -426,9 +423,6 @@
 			// [/CELADON-ADD]
 			// if("act_overmap")		// КОД JOPA
 			if("quick_dock")
-				if(SSshuttle.jump_mode > BS_JUMP_CALLED)
-					to_chat(usr, span_warning("Cannot dock due to bluespace jump preperations!"))
-					return
 				var/datum/overmap/to_act = locate(params["ship_to_act"]) in current_ship.get_nearby_overmap_objects(include_docked = TRUE)
 				say(current_ship.Dock(to_act))
 				return
@@ -567,11 +561,12 @@
 		say("[src] is currently locked; please insert your key to continue.")
 		playsound(src, 'sound/machines/buzz-two.ogg')
 	return TRUE
-
+//
 /obj/machinery/computer/helm/viewscreen
 	name = "ship viewscreen"
-	icon_state = "wallconsole"
-	icon_screen = "wallconsole_navigation"
+	icon = 'icons/obj/machines/wallconsole.dmi'
+	icon_state = "wallmonitor"
+	icon_screen = "wallmonitor_navigation"
 	icon_keyboard = null
 	layer = SIGN_LAYER
 	density = FALSE
@@ -580,6 +575,7 @@
 
 /obj/machinery/computer/helm/viewscreen/computer
 	name = "viewscreen console"
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "oldcomp"
 	icon_screen = "oldcomp_retro_rnd"
 	density = TRUE
